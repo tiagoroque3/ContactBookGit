@@ -13,6 +13,8 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String REPEATS = "EP";
+    public static final String GET_NAME = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -53,6 +55,12 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case REPEATS:
+                    checkRepeats(cBook);
+                    break;
+                case GET_NAME:
+                    getName(cBook, in);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -63,6 +71,8 @@ public class Main {
         System.out.println();
         in.close();
     }
+
+
 
     private static String getCommand(Scanner in) {
         String input;
@@ -146,5 +156,20 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+
+    private static void checkRepeats(ContactBook cBook) {
+        if(cBook.hasDuplicates()){
+            //print do true
+        }
+        else{
+            //print do false
+        }
+
+    }
+
+    public static void getName(ContactBook cBook, Scanner in){
+        //TODO
     }
 }
