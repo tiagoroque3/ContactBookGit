@@ -1,6 +1,7 @@
 # ContactBookGit
 
 Maria Penalva 63107
+Tiago Roque 63492
 This is a starter kit for the first lab of the Software Engineering Course.
 Fork this project to make your own version of it.
 
