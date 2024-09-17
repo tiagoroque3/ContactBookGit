@@ -98,4 +98,14 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public String getContact(int phoneNumber){
+        String result = null;
+        for(int i=counter-1; i>=0; i--){
+            if(contacts[i].getPhone() == phoneNumber){
+                result=contacts[i].getName();
+            }
+        }
+        return result;
+
+    }
 }
