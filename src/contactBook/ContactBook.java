@@ -5,6 +5,7 @@ import contactBook.Contact;
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
+
     private int counter;
     private Contact[] contacts;
     private int currentContact;
@@ -60,6 +61,10 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
+    public boolean hasDuplicates(){
+        return true; //TODO
+    }
+
     private int searchIndex(String name) {
         int i = 0;
         int result = -1;
@@ -93,4 +98,14 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public String getContact(int phoneNumber){
+        String result = null;
+        for(int i=counter-1; i>=0; i--){
+            if(contacts[i].getPhone() == phoneNumber){
+                result=contacts[i].getName();
+            }
+        }
+        return result;
+
+    }
 }

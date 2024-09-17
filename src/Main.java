@@ -13,6 +13,8 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String REPEATS = "EP";
+    public static final String GET_NAME = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -24,6 +26,7 @@ public class Main {
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
+    private static final String NUMBER_NOT_EXIST = "Phone number does not exist.";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -53,6 +56,12 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case REPEATS:
+                    checkRepeats(cBook);
+                    break;
+                case GET_NAME:
+                    getName(cBook, in);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -63,6 +72,8 @@ public class Main {
         System.out.println();
         in.close();
     }
+
+
 
     private static String getCommand(Scanner in) {
         String input;
@@ -147,4 +158,24 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+
+
+    private static void checkRepeats(ContactBook cBook) {
+        if(cBook.hasDuplicates()){
+            //print do true
+        }
+        else{
+            //print do false
+        }
+
+    }
+
+    public static void getName(ContactBook cBook, Scanner in){
+        int number = Integer.parseInt(in.nextLine());
+        if(cBook.getContact(number) != null){
+            System.out.println(cBook.getContact(number));
+        } else System.out.println(NUMBER_NOT_EXIST);
+    }
 }
+
+
